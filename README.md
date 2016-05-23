@@ -1,0 +1,2 @@
+# logic_analysis
+本工程用FPGA和python实现一个简单的8路输入逻辑分析仪
