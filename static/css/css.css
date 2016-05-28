@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:14px;
+    font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+}
+.all{
+    margin:auto;
+    background-color:#fff;
+    width:1400px;
+}
+a{
+    text-decoration:none;
+    color:#000;
+}
+a:hover{
+    color:#fab969;
+}
+.header_text{
+    width: 100%;
+    margin: 10px 0 10px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    border-bottom:solid 3px #135a86;
+}
+.main{
+    margin-top: 20px;
+}
+.wave{
+    position: relative;
+}
+#paint_cursor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1400px;
+    height: 450px;
+}
+.control{
+    margin: auto;
+    width: 600px;
+}
+.control label,#start{
+    margin-left: 10px;
+}
+.ctrl_item{
+    width: 100px;
+    margin-right: 10px;
+}
+.prompt{
+    padding: 5px;
+    text-align: center;
+    color:#555;
+}
+.footer{
+    width:100%;
+    text-align:center;
+    color:#868f95;
+    border-top:solid 3px #135a86;
+    padding-top:10px;
+    margin-top: 10px;
+}
+

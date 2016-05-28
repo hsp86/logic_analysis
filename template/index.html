@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易逻辑分析仪---胡祀鹏设计制作</title>
+    <link href="../static/css/css.css" type="text/css" rel="stylesheet" />
+    <script src="../static/jQuery/jquery-2.2.3.min.js" type="text/javascript"></script>
+    <script src="../static/js/js.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="all">
+    <div class="header">
+        <div class="header_text">简易逻辑分析仪</div>
+    </div>
+    <div class="main">
+        <div class="wave">
+            <svg width="1400" height="450" viewBox="0 0 1400 450" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+                <circle cx="700" cy="100" r="10" style="stroke:none;fill:#00FF00;" >
+                    <animate id="c0" attributeName="r" attributeType="XML" from="1" to="50" begin="0" dur="5s" fill="remove" repeatCount="indefinite" />
+                </circle>
+                <polygon points="0,-10 0,10 10,0 " style="stroke:#2a2;stroke-width:2;fill:maroon;" >
+                    <animateMotion from="0,200" to="1400,200" dur="7s" fill="freeze" keyPoints="0;0.3;0.9;1" keyTimes="0;0.4;0.8;1" calcMode="linear" repeatCount="indefinite" repeatCount="indefinite" />
+                </polygon>
+            </svg>
+            <canvas id="paint_cursor" width="1400" height="450">你的浏览器不支持canvas</canvas>
+        </div>
+        <div class="control">
+            <label for="sample_rate">采样率：
+                <select name="sample_rate" id="sample_rate" >
+                    <option>0</option>
+                </select>
+            </label>
+            <label for="sample_unit">
+                <select name="sample_unit" id="sample_unit" >
+                    <option>0</option>
+                </select>
+            </label>
+            <label for="sample_point">采样点数：
+                <input type="text" class='ctrl_item' id="sample_point" name="sample_point" value="4000" placeholder="小于4000"><!-- 最后采集点数为4000~1024000点；本值为val，则采样点数：val~val*256 -->
+            </label>
+            <input type="button" class='ctrl_item' id="start" name="start" value="开始">
+            <input type="button" class='ctrl_item' id="clear" name="clear" value="清除">
+            <div class="prompt">大概等待5s</div>
+        </div>
+    </div>
+    <div class="footer">
+        胡祀鹏设计制作 ---2016.05.24
+    </div>
+</div>
+</body>
+</html>
