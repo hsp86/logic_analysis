@@ -169,6 +169,33 @@ $(function(){
         }
         $svg.html(wave+paint_ruler());
     }
+    function draw_cursor(show2,offset,e)
+    {
+        x=e.pageX-offset.left;
+        y=e.pageY-offset.top;
+        if(x < 70)//限制到有效区域
+        {
+            x = 70;
+        }
+        else if(x > 1370)
+        {
+            x = 1370;
+        }
+        if(y < 0)
+        {
+            y = 0;
+        }
+        else if(y > 400)
+        {
+            y = 400;
+        }
+        show2.moveTo(x,0);
+        show2.lineTo(x,400);
+        // show2.moveTo(70,y);//不用横向标记，就注释这里
+        // show2.lineTo(1370,y);
+        show2.stroke();
+    }
+    var sigle_cursor = false;//单光标关闭
     function draw(targetclass)
     {
         var $show2=$("#"+targetclass);
@@ -184,35 +211,25 @@ $(function(){
             else if(1 == e.which)//鼠标左键
             {
                 var offset=$(this).offset();
-                x=e.pageX-offset.left;
-                y=e.pageY-offset.top;
-                if(x < 70)//限制到有效区域
+                if(!sigle_cursor)//多光标
                 {
-                    x = 70;
+                    draw_cursor(show2,offset,e);
                 }
-                else if(x > 1370)
-                {
-                    x = 1370;
-                }
-                if(y < 0)
-                {
-                    y = 0;
-                }
-                else if(y > 400)
-                {
-                    y = 400;
-                }
-                show2.moveTo(x,0);
-                show2.lineTo(x,400);
-                // show2.moveTo(70,y);//不用横向标记，就注释这里
-                // show2.lineTo(1370,y);
-                show2.stroke();
             }
             // return false;//这里不能真正屏蔽右键
         })
+        .bind('mousemove',function(e) {
+            var offset=$(this).offset();
+            if(sigle_cursor)//单光标
+            {
+                show2.clearRect(0,0,1400,450);
+                show2.beginPath();//beginPath一下，清除path内容
+                draw_cursor(show2,offset,e);
+            }
+        })
         .bind('contextmenu', function(e) {
             return false;//屏蔽右键
-        });;
+        });
     }
     
     // 初始化采样频率选择部分
@@ -247,6 +264,9 @@ $(function(){
         data = [];
         cnt = [];
         repaint();
+    });
+    $("#sigle_cursor").bind('click', function(event) {
+        sigle_cursor = this.checked;
     });
 
     $('#start').bind('click', function(event) {
