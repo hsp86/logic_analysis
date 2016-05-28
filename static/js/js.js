@@ -178,7 +178,7 @@ $(function(){
         $show2.bind("mousedown",function(e){
             if(3 == e.which)//鼠标右键
             {
-                show2.clearRect(0,0,1370,450);
+                show2.clearRect(0,0,1400,450);
                 show2.beginPath();//beginPath一下，清除path内容
             }
             else if(1 == e.which)//鼠标左键
@@ -204,8 +204,8 @@ $(function(){
                 }
                 show2.moveTo(x,0);
                 show2.lineTo(x,400);
-                show2.moveTo(70,y);
-                show2.lineTo(1370,y);
+                // show2.moveTo(70,y);//不用横向标记，就注释这里
+                // show2.lineTo(1370,y);
                 show2.stroke();
             }
             // return false;//这里不能真正屏蔽右键
