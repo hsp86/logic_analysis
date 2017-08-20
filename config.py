@@ -4,5 +4,5 @@
 temp_dir = r'template/'
 
 # com口设置
-com_port = 'com7'
+com_port = 'com8'
 

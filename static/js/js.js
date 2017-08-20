@@ -45,9 +45,9 @@ $(function(){
         }
         var p = $("#sample_point").val();
         var pt_ms = 1000/freq;
-        if(pt_ms < 1)// 一个点采集时间小于1ms则用1ms来计算时间，因为uart传输至少1ms
+        if(pt_ms < 8000)// 一个点采集时间小于8ms则用8ms来计算时间，因为uart传输一点至少8ms（9600bps）
         {
-            pt_ms = 1;
+            pt_ms = 8000;
         }
         var m = pt_ms*p/1000;
         $(".prompt").text("采样率为"+ s +"；至少等待"+ m.toFixed(3) +"秒");
